@@ -23,10 +23,9 @@ export class RegisterComponent implements OnInit {
   }
 
   getAllUsers() {
-    this.http.get<Usuario[]>(this.url)
+    this.apiService.callURL<Usuario[]>('GET', 'users/', null)
       .subscribe((data) => {
         this.users = data;
-        console.log(this.users);
       });
     this.users = []
   }
