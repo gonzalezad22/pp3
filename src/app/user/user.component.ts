@@ -24,7 +24,7 @@ export class UserComponent {
   }
 
   getUser(id: number){
-    this.http.get<Usuario>(this.url + id).subscribe(
+    this.apiService.callURL<Usuario>('GET', 'users/' + id, null).subscribe(
       response => { this.usuario = response; }
     )
   }
